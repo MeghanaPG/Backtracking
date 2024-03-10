@@ -7,7 +7,7 @@ class Solution:
         def backtrack(i, subset):
             # this is how we know we have gone through the entire array 
             if i == len(nums):
-                res.append(subset[::])
+                res.append(subset[:])
                 return 
 
             # All subsets that include nums[i]
