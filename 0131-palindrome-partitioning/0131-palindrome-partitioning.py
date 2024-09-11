@@ -1,21 +1,18 @@
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
-        res = []
+        res  = []
         part = []
 
         def dfs(i):
-            # Base case 
             if i >= len(s):
                 res.append(part.copy())
-                return 
+                return
             
-            # we have to check the substring 
             for j in range(i, len(s)):
-                # check if we have the palindrome 
-                if self.isPalindrome(s, i,j):
-                     part.append(s[i:j+1])
-                     dfs(j+1)
-                     part.pop()
+                if self.isPalindrome(s, i, j):
+                    part.append(s[i:j+1])
+                    dfs(j+1)
+                    part.pop()
         dfs(0)
         return res 
 
@@ -23,5 +20,7 @@ class Solution:
         while l < r:
             if s[l] != s[r]:
                 return False 
-            l, r = l+1, r-1
+            l, r = l+1, r-1 
         return True 
+
+
